@@ -14,22 +14,30 @@ class _PumpupNavigationBarState extends State<PumpupNavigationBar> {
       backgroundColor: Colors.black,
       destinations: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushReplacementNamed('/');
+          },
           icon: Icon(Icons.home, color: Colors.white),
         ),
 
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushReplacementNamed('/workouts');
+          },
           icon: Icon(Icons.event_note, color: Colors.white),
         ),
 
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushReplacementNamed('/exercises');
+          },
           icon: Icon(Icons.fitness_center, color: Colors.white),
         ),
 
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushReplacementNamed('/profile');
+          },
           icon: Icon(Icons.menu, color: Colors.white),
         ),
       ],
