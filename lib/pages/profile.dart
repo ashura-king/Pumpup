@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pump/widgets/pumpup_navigation_bar.dart';
+import 'package:pump/widgets/layout.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -11,6 +11,6 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(bottomNavigationBar: PumpupNavigationBar());
+    return SafeArea(child: Text("Profile"));
   }
 }

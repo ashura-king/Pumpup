@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class AuthLayout extends StatelessWidget {
+class Protected extends StatelessWidget {
   final Widget child;
 
-  const AuthLayout({super.key, required this.child});
+  const Protected({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {

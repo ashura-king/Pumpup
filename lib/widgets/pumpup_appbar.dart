@@ -6,8 +6,10 @@ class PumpupAppbar extends StatelessWidget implements PreferredSizeWidget {
     required this.icon,
     required this.title,
     required this.editFunction,
+    this.disableEdit = false,
   });
 
+  final bool disableEdit;
   final IconData icon;
   final String title;
   final VoidCallback editFunction;
@@ -27,17 +29,18 @@ class PumpupAppbar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: [
-        TextButton(
-          onPressed: editFunction,
-          child: const Text(
-            'Edit',
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
+        if (!disableEdit)
+          TextButton(
+            onPressed: disableEdit ? null : editFunction,
+            child: Text(
+              'Edit',
+              style: TextStyle(
+                color: const Color(0xFF0A3BBE),
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
-        ),
       ],
     );
   }
