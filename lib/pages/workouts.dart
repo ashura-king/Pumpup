@@ -20,7 +20,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
             'Routines',
             style: TextStyle(
               fontSize: 14,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w600,
               color: Colors.black,
             ),
           ),

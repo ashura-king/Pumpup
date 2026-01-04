@@ -18,7 +18,7 @@ class DashboardScreen extends StatelessWidget {
                 'January',
                 style: TextStyle(
                   fontSize: 14,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                   color: Colors.black,
                 ),
               ),
@@ -77,7 +77,7 @@ class DashboardScreen extends StatelessWidget {
                 'Recent ',
                 style: TextStyle(
                   fontSize: 14,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                   color: Colors.black,
                 ),
               ),
