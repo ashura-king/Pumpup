@@ -24,10 +24,7 @@ class ExerciseListScreen extends StatelessWidget {
             onPressed: () {},
             child: const Text(
               'Edit',
-              style: TextStyle(
-                color: Color.fromARGB(255, 200, 201, 202),
-                fontSize: 16,
-              ),
+              style: TextStyle(color: Colors.grey, fontSize: 16),
             ),
           ),
         ],
@@ -98,27 +95,27 @@ class ExerciseListScreen extends StatelessWidget {
           _buildExerciseSection(context, 'Tricep Exercises', [
             Exercise(
               name: 'Tricep Push Down',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/tricep/triceppushdown.png',
               videoPath: '',
             ),
             Exercise(
               name: 'Skull Crusher',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/tricep/skull.png',
               videoPath: '',
             ),
             Exercise(
               name: 'Overhead Tricep Extension',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/tricep/tricep overhead.png',
               videoPath: '',
             ),
             Exercise(
               name: 'Dips',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/tricep/dips.jpg',
               videoPath: '',
             ),
             Exercise(
               name: 'Close-Grip Bench Pres',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/tricep/close grip.jpg',
               videoPath: '',
             ),
           ]),
@@ -126,27 +123,27 @@ class ExerciseListScreen extends StatelessWidget {
           _buildExerciseSection(context, 'Shoulder Exercises', [
             Exercise(
               name: 'Dumbbell Shoulder Press',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/shoulder/shoulder_press.png',
               videoPath: '',
             ),
             Exercise(
               name: 'Lateral Raises',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/shoulder/lateral_raise.jpg',
               videoPath: '',
             ),
             Exercise(
-              name: 'Dumbbell Press',
-              imagePath: 'assets/dumbbell_press.png',
+              name: 'Rear Delt Fly',
+              imagePath: 'assets/shoulder/rear_delt.jpg',
               videoPath: '',
             ),
             Exercise(
               name: 'Front Raises',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/shoulder/front_raise.png',
               videoPath: '',
             ),
             Exercise(
               name: 'Shoulder Press Machine',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/shoulder/shoulder_press_machine.png',
               videoPath: '',
             ),
           ]),
@@ -154,27 +151,27 @@ class ExerciseListScreen extends StatelessWidget {
           _buildExerciseSection(context, 'Back Exercises', [
             Exercise(
               name: 'Lat Pulldown',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/back/lat.jpg',
               videoPath: '',
             ),
             Exercise(
               name: 'Seated Cable Row',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/back/cable_row.png',
               videoPath: '',
             ),
             Exercise(
               name: 'Pullup',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/back/pullup.png',
               videoPath: '',
             ),
             Exercise(
               name: 'T-Bar Row',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/back/T-bar.jpg',
               videoPath: '',
             ),
             Exercise(
               name: 'Pullover',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/back/pullover.jpg',
               videoPath: '',
             ),
           ]),
@@ -182,27 +179,27 @@ class ExerciseListScreen extends StatelessWidget {
           _buildExerciseSection(context, 'Legs Exercises', [
             Exercise(
               name: 'Squats (Barbell)',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/legs/squat.jpg',
               videoPath: '',
             ),
             Exercise(
               name: 'Romanian Deadlift',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/legs/romanian.jpg',
               videoPath: '',
             ),
             Exercise(
               name: 'Hack Squat',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/legs/hack.jpg',
               videoPath: '',
             ),
             Exercise(
               name: 'Calf Raises (Standing / Seated)',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/legs/calf.jpg',
               videoPath: '',
             ),
             Exercise(
               name: 'Leg Extension',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/legs/leg_extension.jpg',
               videoPath: '',
             ),
           ]),
@@ -210,34 +207,33 @@ class ExerciseListScreen extends StatelessWidget {
           _buildExerciseSection(context, 'Abominal Exercises', [
             Exercise(
               name: 'Cable Crunch',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/abs/cable.jpg',
               videoPath: '',
             ),
             Exercise(
-              name: 'Standing Cable Crunch',
-              imagePath: 'assets/dumbbell_press.png',
+              name: 'Sit ups',
+              imagePath: 'assets/abs/sit-up.jpg',
               videoPath: '',
             ),
             Exercise(
               name: 'Hanging Leg Raises',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/abs/hang.jpg',
               videoPath: '',
             ),
             Exercise(
               name: 'Russian Twists',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/abs/russian.jpg',
               videoPath: '',
             ),
             Exercise(
               name: 'Ab Roller',
-              imagePath: 'assets/dumbbell_press.png',
+              imagePath: 'assets/abs/abroll.jpg',
               videoPath: '',
             ),
           ]),
         ],
       ),
 
-      // Bottom navigation bar
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Colors.black,
@@ -349,23 +345,6 @@ class ExerciseListScreen extends StatelessWidget {
                     width: double.infinity,
                     height: double.infinity,
                   ),
-
-                  Positioned.fill(
-                    child: Center(
-                      child: Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.6),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Icon(
-                          Icons.play_arrow,
-                          color: Colors.white,
-                          size: 24,
-                        ),
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -388,26 +367,7 @@ class ExerciseListScreen extends StatelessWidget {
     );
   }
 
-  // Function to play exercise video
-  void _playExerciseVideo(BuildContext context, Exercise exercise) {
-    // TODO: Navigate to video player screen
-    // For now, just show a dialog
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(exercise.name),
-        content: Text(
-          'Video player will open here!\nVideo URL: ${exercise.videoPath}',
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Close'),
-          ),
-        ],
-      ),
-    );
-  }
+  void _playExerciseVideo(BuildContext context, Exercise exercise) {}
 }
 
 class Exercise {

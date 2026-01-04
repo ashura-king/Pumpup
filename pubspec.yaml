@@ -24,6 +24,12 @@ flutter:
     - assets/logo/
     - assets/chest/
     - assets/bicep/
+    - assets/tricep/
+    - assets/shoulder/
+    - assets/back/
+    - assets/legs/
+    - assets/abs/
+
     
 
 flutter_icons:
