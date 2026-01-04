@@ -1,47 +1,49 @@
 import 'package:flutter/material.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   final _formKey = GlobalKey<FormState>();
 
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _userNameController = TextEditingController();
+  final TextEditingController _newPasswordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
 
-  bool _hidePassword = true;
+  bool _hideNewPassword = true;
   bool _hideConfirmPassword = true;
   bool _isLoading = false;
 
-  void _signUp() {
-    if (_formKey.currentState!.validate()) {
-      setState(() => _isLoading = true);
+  void _resetPassword() {
+    if (!_formKey.currentState!.validate()) return;
 
-      Future.delayed(const Duration(seconds: 2), () {
-        if (!mounted) return;
-        setState(() => _isLoading = false);
+    setState(() => _isLoading = true);
 
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Account created successfully")),
-        );
+    Future.delayed(const Duration(seconds: 2), () {
+      if (!mounted) return;
 
-        Navigator.pop(context);
-      });
-    }
+      setState(() => _isLoading = false);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Password reset successfully"),
+          backgroundColor: Colors.green,
+        ),
+      );
+
+      Navigator.pop(context);
+    });
   }
 
   @override
   void dispose() {
-    _usernameController.dispose();
-    _emailController.dispose();
-    _passwordController.dispose();
+    _userNameController.dispose();
+    _newPasswordController.dispose();
     _confirmPasswordController.dispose();
     super.dispose();
   }
@@ -57,17 +59,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
             key: _formKey,
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 // LOGO
                 SizedBox(
                   height: 120,
-                  child: Image.asset(
-                    'assets/logopump.png',
-                    fit: BoxFit.contain,
-                  ),
+                  child: Image.asset('assets/logopump.png'),
                 ),
-
                 const SizedBox(height: 16),
 
                 // TITLE
@@ -75,7 +72,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   text: const TextSpan(
                     children: [
                       TextSpan(
-                        text: 'Create ',
+                        text: "Reset ",
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 28,
@@ -83,7 +80,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                       TextSpan(
-                        text: 'Account',
+                        text: "Password",
                         style: TextStyle(
                           color: Colors.blueAccent,
                           fontSize: 28,
@@ -96,21 +93,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
 
                 const SizedBox(height: 8),
-
                 const Text(
-                  'Sign Up to get started',
+                  "Please enter your username and new password",
                   style: TextStyle(
                     fontSize: 16,
                     fontStyle: FontStyle.italic,
                     color: Colors.grey,
                   ),
+                  textAlign: TextAlign.center,
                 ),
 
                 const SizedBox(height: 40),
 
                 // USERNAME
                 TextFormField(
-                  controller: _usernameController,
+                  controller: _userNameController,
                   decoration: InputDecoration(
                     labelText: 'Username',
                     hintText: 'Enter your username',
@@ -123,32 +120,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     if (value == null || value.isEmpty) {
                       return 'Username is required';
                     }
-                    if (value.length < 4) return 'At least 4 characters';
-                    return null;
-                  },
-                ),
-
-                const SizedBox(height: 20),
-
-                // EMAIL
-                TextFormField(
-                  controller: _emailController,
-                  decoration: InputDecoration(
-                    labelText: 'Email',
-                    hintText: 'Enter your email',
-                    prefixIcon: const Icon(Icons.email),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Email is required';
-                    }
-                    if (!RegExp(
-                      r'^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$',
-                    ).hasMatch(value)) {
-                      return 'Invalid email';
+                    if (value.length < 4) {
+                      return 'At least 4 characters';
                     }
                     return null;
                   },
@@ -156,20 +129,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                 const SizedBox(height: 20),
 
-                // PASSWORD
+                // NEW PASSWORD
                 TextFormField(
-                  controller: _passwordController,
-                  obscureText: _hidePassword,
+                  controller: _newPasswordController,
+                  obscureText: _hideNewPassword,
                   decoration: InputDecoration(
-                    labelText: 'Password',
-                    hintText: 'Enter your password',
+                    labelText: 'New Password',
+                    hintText: 'Enter your new password',
                     prefixIcon: const Icon(Icons.lock),
                     suffixIcon: IconButton(
                       icon: Icon(
-                        _hidePassword ? Icons.visibility_off : Icons.visibility,
+                        _hideNewPassword
+                            ? Icons.visibility_off
+                            : Icons.visibility,
                       ),
                       onPressed: () {
-                        setState(() => _hidePassword = !_hidePassword);
+                        setState(() => _hideNewPassword = !_hideNewPassword);
                       },
                     ),
                     border: OutlineInputBorder(
@@ -178,9 +153,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Password is required';
+                      return 'New password is required';
                     }
-                    if (value.length < 8) return 'Minimum 8 characters';
+                    if (value.length < 8) {
+                      return 'At least 8 characters';
+                    }
                     return null;
                   },
                 ),
@@ -193,8 +170,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   obscureText: _hideConfirmPassword,
                   decoration: InputDecoration(
                     labelText: 'Confirm Password',
-                    hintText: 'Confirm your password',
-                    prefixIcon: const Icon(Icons.lock_outline),
+                    hintText: 'Confirm your new password',
+                    prefixIcon: const Icon(Icons.lock),
                     suffixIcon: IconButton(
                       icon: Icon(
                         _hideConfirmPassword
@@ -213,9 +190,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Confirm your password';
+                      return 'Confirm password is required';
                     }
-                    if (value != _passwordController.text) {
+                    if (value != _newPasswordController.text) {
                       return 'Passwords do not match';
                     }
                     return null;
@@ -224,14 +201,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                 const SizedBox(height: 30),
 
-                // SIGN UP BUTTON
+                // RESET BUTTON
                 SizedBox(
                   width: double.infinity,
                   height: 50,
                   child: ElevatedButton(
-                    onPressed: _isLoading ? null : _signUp,
+                    onPressed: _isLoading ? null : _resetPassword,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blueAccent,
+                      disabledBackgroundColor: Colors.blueAccent.withAlpha(150),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
@@ -239,11 +217,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: _isLoading
                         ? const CircularProgressIndicator(color: Colors.white)
                         : const Text(
-                            'SIGN UP',
+                            "Reset Password",
                             style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
                               color: Colors.white,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                   ),
@@ -254,12 +232,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 // BACK TO LOGIN
                 TextButton(
                   onPressed: () => Navigator.pop(context),
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.blueAccent,
+                  ),
                   child: const Text(
-                    'Already have an account? Login',
-                    style: TextStyle(
-                      color: Colors.blueAccent,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    "Back to Login",
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                   ),
                 ),
               ],
