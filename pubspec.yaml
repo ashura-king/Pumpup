@@ -21,7 +21,16 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/logopump.png
+    - assets/logo/
+    - assets/chest/
+    - assets/bicep/
+    - assets/tricep/
+    - assets/shoulder/
+    - assets/back/
+    - assets/legs/
+    - assets/abs/
+
+    
 
 flutter_icons:
   android: true

@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pump/services/auth_service.dart';
-import 'signup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
         if (mounted) {
           Navigator.of(context).pushReplacementNamed('/');
         }
-      } on FirebaseAuthException catch (e) {
+      } on FirebaseAuthException {
         setState(() {
           _isLoading = false;
           _errorMessage = 'Invalid credentials provided.';
@@ -82,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 SizedBox(
                   height: 120,
-                  child: Image.asset('assets/logopump.png'),
+                  child: Image.asset('assets/logo/logopump.png'),
                 ),
 
                 const SizedBox(height: 16),
