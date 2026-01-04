@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "140280623952",
+    "project_id": "pump-up-ea71e",
+    "storage_bucket": "pump-up-ea71e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140280623952:android:72386ad6cef5af64c8b255",
+        "android_client_info": {
+          "package_name": "com.example.pump"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyH6p3uPxnIa3ecPrC2NKO4a0Bi6Vwyd0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
