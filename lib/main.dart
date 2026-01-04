@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pump/pages/dashboard.dart';
+import 'package:pump/pages/forgot.dart';
 import 'package:pump/pages/signup.dart';
 import 'package:pump/widgets/auth_layout.dart';
 import 'pages/login.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => AuthLayout(child: const DashboardScreen()),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignUpScreen(),
+        '/forgot': (context) => const ForgotPasswordScreen(),
       },
     );
   }
