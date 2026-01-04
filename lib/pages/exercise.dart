@@ -249,7 +249,7 @@ class ExerciseListScreen extends StatelessWidget {
           ),
           child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
-            currentIndex: 1, // Exercise tab is active
+            currentIndex: 1,
             backgroundColor: Colors.black,
             selectedItemColor: Colors.blue,
             unselectedItemColor: const Color.fromARGB(255, 230, 227, 227),
