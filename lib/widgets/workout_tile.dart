@@ -1,58 +1,72 @@
 import 'package:flutter/material.dart';
+import 'package:pump/pages/workout_details.dart';
 
 class WorkoutTile extends StatelessWidget {
   const WorkoutTile({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-        border: BoxBorder.all(color: Colors.grey[300]!),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey[300]!,
-            spreadRadius: 0,
-            blurRadius: 3,
-            offset: const Offset(0, 2), // changes position of shadow
-          ),
-        ],
-      ),
-      child: Column(
-        spacing: 4,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 14),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Workout Tile',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                ),
-                IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
-              ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => WorkoutDetailsScreen(
+              editFunction: () {},
+              workoutDuration: '2 - 3 hours',
+              workoutTitle: 'Advance PPL',
             ),
           ),
-
-          Container(
-            width: double.infinity,
-            height: 1,
-            color: Colors.grey[300]!,
-          ),
-
-          Container(
-            width: double.infinity,
-            padding: EdgeInsets.only(left: 14),
-            child: Text(
-              'Duration : 2 - 3 hours',
-              style: TextStyle(color: Colors.grey[500]),
+        );
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          border: BoxBorder.all(color: Colors.grey[300]!),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey[300]!,
+              spreadRadius: 0,
+              blurRadius: 3,
+              offset: const Offset(0, 2), // changes position of shadow
             ),
-          ),
+          ],
+        ),
+        child: Column(
+          spacing: 4,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 14),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Workout Tile',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                  IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
+                ],
+              ),
+            ),
 
-          SizedBox(height: 1),
-        ],
+            Container(
+              width: double.infinity,
+              height: 1,
+              color: Colors.grey[300]!,
+            ),
+
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.only(left: 14),
+              child: Text(
+                'Duration : 2 - 3 hours',
+                style: TextStyle(color: Colors.grey[500]),
+              ),
+            ),
+
+            SizedBox(height: 1),
+          ],
+        ),
       ),
     );
   }
