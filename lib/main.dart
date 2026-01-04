@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pump/pages/dashboard.dart';
+import 'package:pump/pages/workout.dart';
 import 'package:pump/pages/forgot.dart';
 import 'package:pump/pages/signup.dart';
 import 'package:pump/widgets/auth_layout.dart';
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => AuthLayout(child: const DashboardScreen()),
+        '/': (context) => AuthLayout(child: const WorkoutsScreen()),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignUpScreen(),
         '/forgot': (context) => const ForgotPasswordScreen(),

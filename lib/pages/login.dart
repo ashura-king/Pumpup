@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
         if (mounted) {
           Navigator.of(context).pushReplacementNamed('/');
         }
-      } on FirebaseAuthException catch (e) {
+      } on FirebaseAuthException {
         setState(() {
           _isLoading = false;
           _errorMessage = 'Invalid credentials provided.';
