@@ -1,6 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pump/services/auth_service.dart';
 import 'signup.dart';
-import 'forgot.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,15 +34,30 @@ class _LoginScreenState extends State<LoginScreen> {
 
   bool _isPasswordHidden = true;
   bool _isLoading = false;
+  String? _errorMessage;
 
-  void _login() {
+  void _login() async {
     if (_formKey.currentState!.validate()) {
-      setState(() => _isLoading = true);
-
-      Future.delayed(const Duration(seconds: 2), () {
-        if (!mounted) return;
-        setState(() => _isLoading = false);
+      setState(() {
+        _isLoading = true;
+        _errorMessage = null;
       });
+
+      try {
+        await authService.value.signIn(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim(),
+        );
+
+        if (mounted) {
+          Navigator.of(context).pushReplacementNamed('/');
+        }
+      } on FirebaseAuthException catch (e) {
+        setState(() {
+          _isLoading = false;
+          _errorMessage = 'Invalid credentials provided.';
+        });
+      }
     }
   }
 
@@ -98,12 +114,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 const SizedBox(height: 8),
 
-                const Text(
-                  'Train smarter, get results',
+                Text(
+                  _errorMessage ?? 'Train smarter, get results',
                   style: TextStyle(
                     fontSize: 16,
                     fontStyle: FontStyle.italic,
-                    color: Colors.grey,
+                    color: _errorMessage != null ? Colors.red : Colors.black,
                   ),
                 ),
 
@@ -163,9 +179,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (value == null || value.isEmpty) {
                       return 'Password is required';
                     }
-                    if (value.length < 6) {
-                      return 'Minimum 6 characters';
-                    }
                     return null;
                   },
                 ),
@@ -176,14 +189,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const ForgotPasswordScreen(),
-                        ),
-                      );
-                    },
+                    onPressed: () {},
                     child: const Text(
                       'Forgot Password?',
                       style: TextStyle(color: Colors.blueAccent),
@@ -243,10 +249,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 50,
                   child: OutlinedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => const SignUpScreen()),
-                      );
+                      Navigator.of(context).pushReplacementNamed('/signup');
                     },
                     style: OutlinedButton.styleFrom(
                       shape: RoundedRectangleBorder(

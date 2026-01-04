@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'pump-up-ea71e.firebasestorage.app',
     iosBundleId: 'com.example.pump',
   );
+
 }

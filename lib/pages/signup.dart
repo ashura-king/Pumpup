@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pump/services/auth_service.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -19,21 +21,30 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool _hidePassword = true;
   bool _hideConfirmPassword = true;
   bool _isLoading = false;
+  String? _errorMessage;
 
-  void _signUp() {
+  void _signUp() async {
     if (_formKey.currentState!.validate()) {
       setState(() => _isLoading = true);
 
-      Future.delayed(const Duration(seconds: 2), () {
-        if (!mounted) return;
-        setState(() => _isLoading = false);
-
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Account created successfully")),
+      try {
+        await authService.value.signUp(
+          username: _usernameController.text,
+          email: _emailController.text,
+          password: _passwordController.text,
         );
 
-        Navigator.pop(context);
-      });
+        setState(() => _isLoading = false);
+
+        if (mounted) {
+          Navigator.of(context).pushReplacementNamed('/');
+        }
+      } on FirebaseAuthException catch (e) {
+        setState(() {
+          _isLoading = false;
+          _errorMessage = e.message;
+        });
+      }
     }
   }
 
@@ -107,6 +118,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
 
                 const SizedBox(height: 40),
+
+                if (_errorMessage != null)
+                  Text(_errorMessage!, style: TextStyle(color: Colors.red)),
 
                 // USERNAME
                 TextFormField(
@@ -253,7 +267,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                 // BACK TO LOGIN
                 TextButton(
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () =>
+                      Navigator.of(context).pushReplacementNamed('/login'),
                   child: const Text(
                     'Already have an account? Login',
                     style: TextStyle(
