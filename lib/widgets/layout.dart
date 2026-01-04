@@ -14,7 +14,7 @@ class Layout extends StatefulWidget {
 }
 
 class _LayoutState extends State<Layout> {
-  int _currentIndex = 2;
+  int _currentIndex = 0;
 
   final List<PumpupAppbar> _appbars = [
     PumpupAppbar(
