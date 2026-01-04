@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pump/widgets/pumpup_appbar.dart';
-import 'package:pump/widgets/layout.dart';
 import 'package:pump/widgets/streak.dart';
 import 'package:pump/widgets/workout_tile.dart';
 
