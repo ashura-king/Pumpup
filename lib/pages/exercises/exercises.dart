@@ -64,18 +64,28 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: _isLoading
-            ? const Center(child: CircularProgressIndicator())
-            : _exercises.isEmpty
-            ? const Center(child: Text('No exercises available'))
-            : _buildCategorizedExercises(),
+        child: Column(
+          children: [
+            Expanded(
+              child: _isLoading
+                  ? const Center(child: CircularProgressIndicator())
+                  : _exercises.isEmpty
+                  ? Column(
+                      children: [
+                        const Center(child: Text('No exercises available')),
+                      ],
+                    )
+                  : _buildCategorizedExercises(),
+            ),
+
+            ActionButton(
+              label: 'Create new exercise',
+              icon: Icons.add,
+              onPressed: _navigateToCreateExercise,
+            ),
+          ],
+        ),
       ),
-      floatingActionButton: ActionButton(
-        label: 'Create new exercise',
-        icon: Icons.add,
-        onPressed: _navigateToCreateExercise,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 

@@ -118,6 +118,7 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Form(
@@ -182,6 +183,12 @@ class _CreateExerciseScreenState extends State<CreateExerciseScreen> {
 
                     // Image Picker
                     ElevatedButton.icon(
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStateProperty.all(Colors.white),
+                        foregroundColor: WidgetStateProperty.all(
+                          const Color(0xFF0A3BBE),
+                        ),
+                      ),
                       onPressed: _pickImage,
                       icon: const Icon(Icons.image),
                       label: Text(
