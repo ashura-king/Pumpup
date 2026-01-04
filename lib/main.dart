@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pump/pages/forgot.dart';
-import 'package:pump/pages/login.dart';
-import 'package:pump/pages/signup.dart';
+import 'package:pump/pages/auth/forgot.dart';
+import 'package:pump/pages/auth/login.dart';
+import 'package:pump/pages/auth/signup.dart';
 import 'package:pump/widgets/layout.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'configs/firebase_options.dart';

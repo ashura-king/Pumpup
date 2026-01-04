@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pump/pages/dashboard.dart';
-import 'package:pump/pages/exercises.dart';
+import 'package:pump/pages/exercises/exercises.dart';
 import 'package:pump/pages/profile.dart';
-import 'package:pump/pages/workouts.dart';
+import 'package:pump/pages/workouts/workouts.dart';
 import 'package:pump/widgets/protected.dart';
 import 'package:pump/widgets/pumpup_appbar.dart';
 

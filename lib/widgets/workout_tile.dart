@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pump/pages/workout_details.dart';
+import 'package:pump/pages/workouts/workout_details.dart';
 
 class WorkoutTile extends StatelessWidget {
   const WorkoutTile({super.key});
