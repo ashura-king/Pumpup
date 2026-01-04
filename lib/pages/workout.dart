@@ -126,13 +126,32 @@ class _WorkoutsScreenState extends State<WorkoutsScreen> {
               unselectedItemColor: const Color.fromARGB(255, 230, 227, 227),
               elevation: 0,
               enableFeedback: false,
+              onTap: (index) {
+                switch (index) {
+                  case 0:
+                    break;
+                  case 1:
+                    Navigator.pushNamed(context, '/exercises');
+                    break;
+                  case 2:
+                    Navigator.pushNamed(context, '/history');
+                    break;
+                  case 3:
+                    Navigator.pushNamed(context, '/settings');
+                    break;
+                }
+              },
               items: const [
                 BottomNavigationBarItem(icon: Icon(Icons.grid_view), label: ''),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.calendar_month),
+                  label: '',
+                ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.fitness_center),
                   label: '',
                 ),
-                BottomNavigationBarItem(icon: Icon(Icons.folder), label: ''),
+
                 BottomNavigationBarItem(icon: Icon(Icons.menu), label: ''),
               ],
             ),
