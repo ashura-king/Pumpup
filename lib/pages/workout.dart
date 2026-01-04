@@ -1,19 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pump/services/auth_service.dart';
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Workouts',
-      theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
-      home: const WorkoutsScreen(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
 
 class WorkoutsScreen extends StatefulWidget {
   const WorkoutsScreen({super.key});
@@ -129,15 +114,17 @@ class _WorkoutsScreenState extends State<WorkoutsScreen> {
               onTap: (index) {
                 switch (index) {
                   case 0:
+                    Navigator.pushReplacementNamed(context, '/');
                     break;
                   case 1:
-                    Navigator.pushNamed(context, '/exercises');
-                    break;
-                  case 2:
                     Navigator.pushNamed(context, '/history');
                     break;
+                  case 2:
+                    Navigator.pushNamed(context, '/exercise');
+
+                    break;
                   case 3:
-                    Navigator.pushNamed(context, '/settings');
+                    Navigator.pushReplacementNamed(context, '/settings');
                     break;
                 }
               },

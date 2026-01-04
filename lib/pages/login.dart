@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pump/services/auth_service.dart';
-import 'signup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -82,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 SizedBox(
                   height: 120,
-                  child: Image.asset('assets/logopump.png'),
+                  child: Image.asset('assets/logo/logopump.png'),
                 ),
 
                 const SizedBox(height: 16),

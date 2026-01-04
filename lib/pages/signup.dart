@@ -74,7 +74,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 SizedBox(
                   height: 120,
                   child: Image.asset(
-                    'assets/logopump.png',
+                    'assets/logo/logopump.png',
                     fit: BoxFit.contain,
                   ),
                 ),
