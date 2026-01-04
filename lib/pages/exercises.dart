@@ -482,7 +482,7 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                       },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 12),
-                        backgroundColor: Colors.blue,
+                        backgroundColor: const Color.fromARGB(255, 25, 77, 232),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
