@@ -113,22 +113,29 @@ class _WorkoutsScreenState extends State<WorkoutsScreen> {
             topLeft: Radius.circular(20),
             topRight: Radius.circular(20),
           ),
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            currentIndex: 0,
-            backgroundColor: Colors.black,
-            selectedItemColor: Colors.blue,
-            unselectedItemColor: Color.fromARGB(255, 230, 227, 227),
-            elevation: 0,
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.grid_view), label: ''),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.fitness_center),
-                label: '',
-              ),
-              BottomNavigationBarItem(icon: Icon(Icons.folder), label: ''),
-              BottomNavigationBarItem(icon: Icon(Icons.menu), label: ''),
-            ],
+          child: Theme(
+            data: Theme.of(context).copyWith(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+            ),
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              currentIndex: 0,
+              backgroundColor: Colors.black,
+              selectedItemColor: Colors.blue,
+              unselectedItemColor: const Color.fromARGB(255, 230, 227, 227),
+              elevation: 0,
+              enableFeedback: false,
+              items: const [
+                BottomNavigationBarItem(icon: Icon(Icons.grid_view), label: ''),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.fitness_center),
+                  label: '',
+                ),
+                BottomNavigationBarItem(icon: Icon(Icons.folder), label: ''),
+                BottomNavigationBarItem(icon: Icon(Icons.menu), label: ''),
+              ],
+            ),
           ),
         ),
       ),
