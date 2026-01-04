@@ -11,12 +11,14 @@ class ExercisesScreen extends StatefulWidget {
 class Exercise {
   final String name;
   final String imagePath;
-  final String videoPath;
+  final String description;
+  final String category;
 
   Exercise({
     required this.name,
     required this.imagePath,
-    required this.videoPath,
+    required this.description,
+    required this.category,
   });
 }
 
@@ -35,27 +37,37 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                   Exercise(
                     name: 'Barbell Curl',
                     imagePath: 'assets/bicep/barbellcurl.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Biceps',
                   ),
                   Exercise(
                     name: 'Dumbbell Curl',
                     imagePath: 'assets/bicep/dumbellcurl.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Biceps',
                   ),
                   Exercise(
                     name: 'Hammer Curl',
                     imagePath: 'assets/bicep/hammer.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Biceps',
                   ),
                   Exercise(
                     name: 'Preacher Curl',
                     imagePath: 'assets/bicep/preach.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Biceps',
                   ),
                   Exercise(
                     name: 'Incline Dumbbell Curl',
                     imagePath: 'assets/bicep/inclinepress.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Biceps',
                   ),
                 ]),
 
@@ -66,56 +78,76 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                   Exercise(
                     name: 'Barbell Bench Press',
                     imagePath: 'assets/chest/barbel.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Chest',
                   ),
                   Exercise(
                     name: 'Dumbbell Bench Press',
                     imagePath: 'assets/chest/flat dumbell.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Chest',
                   ),
                   Exercise(
                     name: 'Incline Bench Press',
                     imagePath: 'assets/chest/inclinepress.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Chest',
                   ),
                   Exercise(
                     name: 'Dumbbell Flyes',
                     imagePath: 'assets/chest/dumbell flies.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Chest',
                   ),
                   Exercise(
                     name: 'Cable Chest Fly',
                     imagePath: 'assets/chest/chestfly.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Chest',
                   ),
                 ]),
                 const SizedBox(height: 24),
-                //Tricepp Exercises Section
+                //Tricep Exercises Section
                 _buildExerciseSection(context, 'Tricep Exercises', [
                   Exercise(
                     name: 'Tricep Push Down',
                     imagePath: 'assets/tricep/triceppushdown.png',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Triceps',
                   ),
                   Exercise(
                     name: 'Skull Crusher',
                     imagePath: 'assets/tricep/skull.png',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Triceps',
                   ),
                   Exercise(
                     name: 'Overhead Tricep Extension',
                     imagePath: 'assets/tricep/tricep overhead.png',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Triceps',
                   ),
                   Exercise(
                     name: 'Dips',
                     imagePath: 'assets/tricep/dips.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Triceps',
                   ),
                   Exercise(
-                    name: 'Close-Grip Bench Pres',
+                    name: 'Close-Grip Bench Press',
                     imagePath: 'assets/tricep/close grip.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Triceps',
                   ),
                 ]),
 
@@ -125,116 +157,156 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                   Exercise(
                     name: 'Dumbbell Shoulder Press',
                     imagePath: 'assets/shoulder/shoulder_press.png',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Shoulders',
                   ),
                   Exercise(
                     name: 'Lateral Raises',
                     imagePath: 'assets/shoulder/lateral_raise.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Shoulders',
                   ),
                   Exercise(
                     name: 'Rear Delt Fly',
                     imagePath: 'assets/shoulder/rear_delt.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Shoulders',
                   ),
                   Exercise(
                     name: 'Front Raises',
                     imagePath: 'assets/shoulder/front_raise.png',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Shoulders',
                   ),
                   Exercise(
                     name: 'Shoulder Press Machine',
                     imagePath: 'assets/shoulder/shoulder_press_machine.png',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Shoulders',
                   ),
                 ]),
 
                 const SizedBox(height: 24),
-                //back  Exercises Section
+                //back Exercises Section
                 _buildExerciseSection(context, 'Back Exercises', [
                   Exercise(
                     name: 'Lat Pulldown',
                     imagePath: 'assets/back/lat.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Back',
                   ),
                   Exercise(
                     name: 'Seated Cable Row',
                     imagePath: 'assets/back/cable_row.png',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Back',
                   ),
                   Exercise(
                     name: 'Pullup',
                     imagePath: 'assets/back/pullup.png',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Back',
                   ),
                   Exercise(
                     name: 'T-Bar Row',
                     imagePath: 'assets/back/T-bar.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Back',
                   ),
                   Exercise(
                     name: 'Pullover',
                     imagePath: 'assets/back/pullover.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Back',
                   ),
                 ]),
                 const SizedBox(height: 24),
-                //leg Exrcises Section
+                //leg Exercises Section
                 _buildExerciseSection(context, 'Legs Exercises', [
                   Exercise(
                     name: 'Squats (Barbell)',
                     imagePath: 'assets/legs/squat.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Legs',
                   ),
                   Exercise(
                     name: 'Romanian Deadlift',
                     imagePath: 'assets/legs/romanian.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Legs',
                   ),
                   Exercise(
                     name: 'Hack Squat',
                     imagePath: 'assets/legs/hack.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Legs',
                   ),
                   Exercise(
                     name: 'Calf Raises (Standing / Seated)',
                     imagePath: 'assets/legs/calf.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Legs',
                   ),
                   Exercise(
                     name: 'Leg Extension',
                     imagePath: 'assets/legs/leg_extension.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Legs',
                   ),
                 ]),
 
                 const SizedBox(height: 24),
                 //abdominal Exercise Section
-                _buildExerciseSection(context, 'Abominal Exercises', [
+                _buildExerciseSection(context, 'Abdominal Exercises', [
                   Exercise(
                     name: 'Cable Crunch',
                     imagePath: 'assets/abs/cable.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Abs',
                   ),
                   Exercise(
                     name: 'Sit ups',
                     imagePath: 'assets/abs/sit-up.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Abs',
                   ),
                   Exercise(
                     name: 'Hanging Leg Raises',
                     imagePath: 'assets/abs/hang.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Abs',
                   ),
                   Exercise(
                     name: 'Russian Twists',
                     imagePath: 'assets/abs/russian.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Abs',
                   ),
                   Exercise(
                     name: 'Ab Roller',
                     imagePath: 'assets/abs/abroll.jpg',
-                    videoPath: '',
+                    description:
+                        'Stand with feet shoulder-width apart. Hold barbell with underhand grip. Curl the bar up while keeping elbows stationary, then lower slowly.',
+                    category: 'Abs',
                   ),
                 ]),
               ],
@@ -289,7 +361,7 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
   Widget _buildExerciseCard(BuildContext context, Exercise exercise) {
     return GestureDetector(
       onTap: () {
-        _playExerciseVideo(context, exercise);
+        _showExerciseDetails(context, exercise);
       },
       child: Container(
         decoration: BoxDecoration(
@@ -331,5 +403,98 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
     );
   }
 
-  void _playExerciseVideo(BuildContext context, Exercise exercise) {}
+  void _showExerciseDetails(BuildContext context, Exercise exercise) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 200,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      image: DecorationImage(
+                        image: AssetImage(exercise.imagePath),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+
+                  Text(
+                    exercise.name,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 4,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.blue[50],
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Text(
+                      exercise.category,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.blue[800],
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+
+                  Text(
+                    'Description:',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    exercise.description,
+                    style: const TextStyle(fontSize: 14, height: 1.5),
+                  ),
+                  const SizedBox(height: 20),
+
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: const Text('Close'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
 }
