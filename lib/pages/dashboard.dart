@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pump/services/auth_service.dart';
+import 'package:pump/widgets/pumpup_navigation_bar.dart';
 import 'package:pump/widgets/streak.dart';
 import 'package:pump/widgets/workout_tile.dart';
 
@@ -159,30 +160,7 @@ class DashboardScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: NavigationBar(
-        backgroundColor: Colors.black,
-        destinations: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.home, color: Colors.white),
-          ),
-
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.event_note, color: Colors.white),
-          ),
-
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.fitness_center, color: Colors.white),
-          ),
-
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.menu, color: Colors.white),
-          ),
-        ],
-      ),
+      bottomNavigationBar: PumpupNavigationBar(),
     );
   }
 }
