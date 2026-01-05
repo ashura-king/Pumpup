@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pump/models/workout_exercise.dart';
 
 class WorkoutExerciseTile extends StatelessWidget {
-  const WorkoutExerciseTile({super.key});
+  const WorkoutExerciseTile({super.key, required this.workoutExercise});
+
+  final WorkoutExercise workoutExercise;
 
   @override
   Widget build(BuildContext context) {

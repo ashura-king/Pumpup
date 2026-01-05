@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pump/models/workout.dart';
 import 'package:pump/pages/workouts/workout_details.dart';
 
 class WorkoutTile extends StatelessWidget {
-  const WorkoutTile({super.key});
+  const WorkoutTile({super.key, required this.workout});
+
+  final Workout workout;
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +14,7 @@ class WorkoutTile extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => WorkoutDetailsScreen(
+              workoutId: workout.id,
               editFunction: () {},
               workoutDuration: '2 - 3 hours',
               workoutTitle: 'Advance PPL',
@@ -41,7 +45,7 @@ class WorkoutTile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Workout Tile',
+                    workout.name,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                   IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
@@ -59,7 +63,7 @@ class WorkoutTile extends StatelessWidget {
               width: double.infinity,
               padding: EdgeInsets.only(left: 14),
               child: Text(
-                'Duration : 2 - 3 hours',
+                'Duration : ${workout.duration} hours',
                 style: TextStyle(color: Colors.grey[500]),
               ),
             ),
